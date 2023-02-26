@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Regístrate!</title>
+    <link rel="stylesheet" href="p1.css">
+</head>
+<body>
+    
+
+    <h1>Servicio de recomendación de canciones</h1>
+
+    <form id="form" onsubmit="return validate();" method="POST" enctype="application/x-www-form-urlencoded" action="http://alberto.gil.webs.uvigo.es/SINT/22-23/p1.php">
+
+        <p id="form-title">Registro</p>
+
+        <div class="form-boxes">
+            <label>Nombre y primer apellido</label>
+            <input id="name" type="text" name="cname" pattern="[A-Za-zñÑáéíóúÁÉÍÓÚ]{3,}[\s][A-Za-zñÑáéíóúÁÉÍÓÚ]{3,}">
+            <p class="correct-format">Introduce dos palabras, compuestas cada una por al menos 3 caracteres</p>
+        </div>
+        
+        <div class="form-boxes">
+            <label>Nombre de usuario</label>
+            <input id="login" type="text" name="clogin">
+            <p class="correct-format">El nombre de usuario debe estar compuesto por entre 4 y 8 caracteres. Sólo números y letras minúsculas</p>
+        </div>
+
+        <div class="form-boxes">
+            <label>Contraseña</label>
+            <input id="password" type="password" name="cpasswd">
+            <p class="correct-format">La contraseñadebe tener entre 6 y 12 caracteres. Al menos una mayúscula y una minúscula, un número, y un símbolo del conjunto “+-*/”</p>
+        </div>
+        
+        <div class="form-boxes">
+            <label>DNI</label>
+            <input id="dni" type="text" name="cdni">
+            <p class="correct-format">Debe contener 8 dígitos, comenzando por un número entre 0 y 7 y una letra mayúscula</p>
+        </div>
+
+        <div class="form-boxes">
+            <label>Email</label>
+            <input type="email" name="cemail">
+        </div>
+
+        <div class="form-boxes">
+            <label>Adjuntar una foto</label>
+            <input type="file" name="cfile">
+        </div>
+
+        <div class="form-boxes">
+            <label>Edad</label>
+            <input type="radio" name="cage" value="<25"> Menor de 25
+            <input type="radio" name="cage" value="25-40"> Entre 25 y 40
+            <input type="radio" name="cage" value="40-60"> Entre 40 y 60
+            <input type="radio" name="cage" value=">60"> Mayor de 60
+        </div>
+
+        <div class="form-boxes">
+            <label>Géneros preferidos</label>
+            <input type="checkbox" name="cgenre[]" value="Pop"> Pop
+            <input type="checkbox" name="cgenre[]" value="Rock"> Rock
+            <input type="checkbox" name="cgenre[]" value="Country"> Country
+            <input type="checkbox" name="cgenre[]" value="Rap"> Rap
+            <input type="checkbox" name="cgenre[]" value="Soul"> Soul
+            <input type="checkbox" id="select-box" onclick="selectAll();"> Marcar todas
+            <input type="checkbox" id="deselect-box" onclick="deselectAll();"> Desmarcar todas
+        </div>
+
+        <div class="form-boxes">
+            <label>Comentarios</label>
+            <textarea name="ccomment"></textarea>
+        </div>
+        
+        <div class="form-boxes">
+            <label>Proveedor de Internet</label>
+                <select name="cInternet">
+                <option>Movistar</option>
+                <option>Vodafone</option>
+                <option>Orange</option>
+                <option>R</option>
+                </select>
+        </div>
+
+        <div class="form-boxes">
+            <label>Método de envío</label>
+            <input type="radio" name="cmethod" value="GET" onclick="getMethod();"> GET
+            <input type="radio" name="cmethod" value="POST" onclick="postMethod();" checked> POST
+        </div>
+
+        <div class="form-boxes">
+            <label>Tipo de codificación</label>
+            <input type="radio" name="cencoding" id="app-encoding" value="application/x-www-form-urlencoded" onclick="appEncoding();" checked> application/x-www-form-urlencoded
+            <input type="radio" name="cencoding" id="mult-encoding" value="multipart/form-data" onclick="multEncoding();"> multipart/form-data
+        </div>
+        
+        <input type="hidden" name="cbrowser" id="info-browser" value="">
+        
+        <input type="hidden" name="cdate" id="info-date" value="">
+
+        <div id="form-submit">
+            <input type="submit" value="Registrarse">
+        </div>
+        
+
+    </form>
+
+    <footer>Iván González Novoa</footer>
+
+    <script src="p1.js"></script>
+
+</body>
+</html>
